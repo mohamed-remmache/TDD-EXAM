@@ -5,6 +5,8 @@ def move_rover(grid, position, commands):
     x, y, direction = position
     
     for command in commands:
+        if command not in {'L', 'R', 'M'}:
+            raise ValueError(f"Invalid command: {command}")
         if command == 'L':
             direction = directions[(directions.index(direction) - 1) % 4]
         elif command == 'R':
@@ -12,6 +14,7 @@ def move_rover(grid, position, commands):
         elif command == 'M':
             dx, dy = moves[direction]
             nx, ny = x + dx, y + dy
+            # Vérifier les limites de la grille
             if 0 <= nx <= grid[0] and 0 <= ny <= grid[1]:
                 x, y = nx, ny
 
