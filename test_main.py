@@ -8,5 +8,14 @@ class TestMoveRover(unittest.TestCase):
         expected = (1, 3, 'N')
         self.assertEqual(move_rover(grid, position, commands), expected)
 
+    
+    def test_advanced_case(self):
+        grid = (5, 5)
+        position = (3, 3, 'E')
+        commands = "MMRMMRMRRM"
+        expected = (5, 1, 'E')
+        self.assertEqual(move_rover(grid, position, commands), expected)
+    
+
 if __name__ == "__main__":
     unittest.main()
